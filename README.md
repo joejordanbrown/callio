@@ -68,7 +68,7 @@ You have to provide some secret data to the `config.yml` file. A sample config f
 ``` yml
 slack:
   client_token: 'xoxp-1234-your0slack-99secret4token-nomnomnom3'
-  channel: '#awesome-slack-channel-name'
+  channel: 'awesome-slack-channel-name'
 twilio:
   account_sid: 'ACand0some1random9chars'
   auth_token: '1234rtg42fg234rfgsbh45uknow'
