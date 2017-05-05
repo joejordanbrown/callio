@@ -1,9 +1,9 @@
-# Twilio-Slack-Notifier
+# Callio
 
-Twilio-Slack-Notifier is a simple app that allows you to answer phone calls in the web browser using Twilio programmable voice service and Slack notifications. It's, more or less, working in the following scenario:
+Callio is a simple app that allows you to answer phone calls in the web browser using Twilio programmable voice service and Slack notifications. It's, more or less, working in the following scenario:
 
 1. Someone is calling you
-2. Twilio-Slack-Notifier is posting a notification on your Slack channel with a link to the web browser client where you can answer the call
+2. Callio is posting a notification on your Slack channel with a link to the web browser client where you can answer the call
 3. You click the link included in Slack notification
 4. When you click the `call` button in the browser, another notification is posted on your Slack to let the rest of your team know that somebody has already answered the call
 5. Call is performed and recorded
@@ -20,38 +20,38 @@ This app may be useful when:
 
 ## How does it work?
 
-Twilio-Slack-Notifier is an extremely lightweight app. It uses [Sinatra]((https://github.com/sinatra/sinatra)) to communicate with [Slack](https://slack.com) and [Twilio](https://twilio.com) APIs, simple web client with some JavaScript to handle the voice calls in the browser and a few webhooks to make it all running smoothly.
+Callio is an extremely lightweight app. It uses [Sinatra]((https://github.com/sinatra/sinatra)) to communicate with [Slack](https://slack.com) and [Twilio](https://twilio.com) APIs, simple web client with some JavaScript to handle the voice calls in the browser and a few webhooks to make it all running smoothly.
 
 ## Setup, requirements, dependencies
-### What do you need to start using Twilio-Slack-Notifier
+### What do you need to start using Callio
 #### Twilio account with number
 
-To start using Twilio-Slack-Notifier you have to sign up to [Twilio](https://www.twilio.com) and pick up a number you want to use. It's free and provides full functionality for testing purposes, there's only a short message that you're running a trial account.
+To start using Callio you have to sign up to [Twilio](https://www.twilio.com) and pick up a number you want to use. It's free and provides full functionality for testing purposes, there's only a short message that you're running a trial account.
 
 #### Twilio incoming connection webhook
 
-After registering on Twilio and picking up a number, you have to configure your first webhook. To do that, please paste the address of your Twilio-Slack-Notifier app under `Phone numbers -> Configure -> Voice -> A call comes in`.
+After registering on Twilio and picking up a number, you have to configure your first webhook. To do that, please paste the address of your Callio app under `Phone numbers -> Configure -> Voice -> A call comes in`.
 
 
 #### Twilio webhook for connection finished
 
-In the same place you're pasting the Twilio-Slack-Notifier incoming call webhook you can type in the address of the endpoint for notifying users that the call is finished. It's under the `call status changes` input field.
+In the same place you're pasting the Callio incoming call webhook you can type in the address of the endpoint for notifying users that the call is finished. It's under the `call status changes` input field.
 
 #### Twilio Application
 
-When you're done with the number, go to `Programmable voice -> Tools -> TwiML apps` and create an application. In a few seconds your Twilio app will be ready (we'll need its SID later), then you can configure a webhook there to handle the voice calls by simply typing the address of your Twilio-Slack-Notifier app into Voice's `requested URL`.
+When you're done with the number, go to `Programmable voice -> Tools -> TwiML apps` and create an application. In a few seconds your Twilio app will be ready (we'll need its SID later), then you can configure a webhook there to handle the voice calls by simply typing the address of your Callio app into Voice's `requested URL`.
 
 #### Slack application
 
 When we're done with Twilio, it's time to create a simple Slack application. Go to https://api.slack.com/apps and create an app (we'll need its token as well). Remember to setup proper permissions of this app to make it able to post the messages on your channel. The only permission we need is `chat:write:bot`.
 
-#### Twilio-Slack-Notifier setup
+#### Callio setup
 
 Clone the repo, rename `config/config.yml.sample` file to `config/config.yml`, fill it with proper data, bundle install and voila! We're done!
 
 ### Requirements
 
-To make Twilio-Slack-Notifier running on your server you need an environment ready to handle Rack-based application based on [Sinatra](https://github.com/sinatra/sinatra). In terms of front-end, you have to bare in mind that processing live voice streaming (when you're talking with someone) [requires WebRTC/ORTC browser support](https://support.twilio.com/hc/en-us/articles/223180848-Which-browsers-support-WebRTC-). Answering the phone calls with the current version of Twilio-Slack-Notifier is not possible with every single browser. It works fine with Chrome, Firefox, Opera or Edge, but will not work properly on Safari or mobile device browsers, e.g. Chrome for Android. To check out the current status please use [this link](http://caniuse.com/#search=webrtc).
+To make Callio running on your server you need an environment ready to handle Rack-based application based on [Sinatra](https://github.com/sinatra/sinatra). In terms of front-end, you have to bare in mind that processing live voice streaming (when you're talking with someone) [requires WebRTC/ORTC browser support](https://support.twilio.com/hc/en-us/articles/223180848-Which-browsers-support-WebRTC-). Answering the phone calls with the current version of Callio is not possible with every single browser. It works fine with Chrome, Firefox, Opera or Edge, but will not work properly on Safari or mobile device browsers, e.g. Chrome for Android. To check out the current status please use [this link](http://caniuse.com/#search=webrtc).
 
 ### Dependencies
 
@@ -60,7 +60,7 @@ To communicate with external services we use the following gems:
 * [Slack-api](https://github.com/aki017/slack-ruby-gem)
 
 ### I want to test it locally...
-No problem! You can clone the Twilio-Slack-Notifier repo locally and put your app out to the Internets through [ngrok.io](https://ngrok.com/). Remember to update all the webhooks addresses on Twilio and in your `config.yml` file in order to make it working.
+No problem! You can clone the Callio repo locally and put your app out to the Internets through [ngrok.io](https://ngrok.com/). Remember to update all the webhooks addresses on Twilio and in your `config.yml` file in order to make it working.
 
 ## Configuration
 You have to provide some secret data to the `config.yml` file. A sample config file should look similar to this:
@@ -68,7 +68,7 @@ You have to provide some secret data to the `config.yml` file. A sample config f
 ``` yml
 slack:
   client_token: 'xoxp-1234-your0slack-99secret4token-nomnomnom3'
-  channel: '#awesome-slack-channel-name'
+  channel: 'awesome-slack-channel-name'
 twilio:
   account_sid: 'ACand0some1random9chars'
   auth_token: '1234rtg42fg234rfgsbh45uknow'
@@ -85,13 +85,13 @@ web_client_link: 'https://my_web_client_endpoint.com/call'
 * `Twilio account sid` - Get it in your Twilio dashboard after login: https://www.twilio.com/console
 * `Twilio auth token` - Just like above: https://www.twilio.com/console
 * `Twilio app sid` - You have to create a Twilio app first, go to `Console -> Programmable Voice -> Tools -> TwiML apps`. After creating a new app you'll get the Application SID there
-* `Twilio client name` - it's a name you have to type in your Twilio dashboard and Twilio-Slack-Notifier config. It authorizes the browser to connect to your Twilio and perform the phone calls
+* `Twilio client name` - it's a name you have to type in your Twilio dashboard and Callio config. It authorizes the browser to connect to your Twilio and perform the phone calls
 * `Caller` - your Twilio phone number
 * `Web client link` - the endpoint address for your web client - this link is posted on the Slack channel to allow your team members to answer the phone calls in the browser
 
 ## Contributing
 
-If you'd like to contribute to Twilio-Slack-Notifier, please feel free to do so! I'll be happy to help in case of any questions. For more information please check the [contributing guidelines](CONTRIBUTING.md).
+If you'd like to contribute to Callio, please feel free to do so! I'll be happy to help in case of any questions. For more information please check the [contributing guidelines](CONTRIBUTING.md).
 
 ## License
 
