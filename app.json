@@ -22,7 +22,7 @@
     },
     "TWILIO_AUTH_TOKEN": {
       "description": "Just like above: https://www.twilio.com/console",
-      "value": "false",
+      "value": "",
       "required": true
     },
     "TWILIO_APP_SID": {
