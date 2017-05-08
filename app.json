@@ -1,0 +1,49 @@
+{
+  "name": "Callio",
+  "description": "Answer your phone calls in the browser through Slack",
+  "repository": "https://github.com/netguru/callio",
+  "logo": "https://www.netguru.co/hubfs/images/landing_pages/callio/logo_pos.svg",
+  "keywords": ["twilio", "callio", "slack", "sinatra", "ruby"],
+  "env": {
+    "SLACK_CLIENT_TOKEN": {
+      "description": "Your Slack app token. You have to create a Slack application first to get it. Just choose your app under https://api.slack.com/apps in OAuth and Permissions section. It usually starts with 'xoxp-'",
+      "value": "",
+      "required": true
+    },
+    "CALLIO_SLACK_CHANNEL": {
+      "description": "Slack channel name you want the notifications to be posted",
+      "value": "",
+      "required": true
+    },
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Get it in your Twilio dashboard after login: https://www.twilio.com/console",
+      "value": "",
+      "required": true
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Just like above: https://www.twilio.com/console",
+      "value": "false",
+      "required": true
+    },
+    "TWILIO_APP_SID": {
+      "description": "You have to create a Twilio app first, go to Console -> Programmable Voice -> Tools -> TwiML apps. After creating a new app you'll get the Application SID there",
+      "value": "",
+      "required": true
+    },
+    "TWILIO_CLIENT_NAME": {
+      "description": "It's a name you have to type in your Twilio dashboard and Callio config. It authorizes the browser to connect to your Twilio and perform the phone calls",
+      "value": "",
+      "required": true
+    },
+    "TWILIO_PHONE_NUMBER": {
+      "description": "Your Twilio phone number",
+      "value": "",
+      "required": true
+    },
+    "CALLIO_WEB_CLIENT_LINK": {
+      "description": "The endpoint address for your web client - this link is posted on the Slack channel to allow your team members to answer the phone calls in the browser. As you're deploying it to Heroku, it will be this app domain address with `/call` at the end",
+      "value": "",
+      "required": true
+    }
+  }
+}
