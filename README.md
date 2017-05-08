@@ -1,4 +1,8 @@
-# Callio
+<p align="center">
+  <img src="https://raw.githubusercontent.com/netguru/callio/master/public/images/logo.png" alt="Callio Logo"/>
+</p>
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Callio is a simple app that allows you to answer phone calls in the web browser using Twilio programmable voice service and Slack notifications. It's, more or less, working in the following scenario:
 
@@ -39,7 +43,13 @@ In the same place you're pasting the Callio incoming call webhook you can type i
 
 #### Twilio Application
 
-When you're done with the number, go to `Programmable voice -> Tools -> TwiML apps` and create an application. In a few seconds your Twilio app will be ready (we'll need its SID later), then you can configure a webhook there to handle the voice calls by simply typing the address of your Callio app into Voice's `requested URL`.
+When you're done with the number, go to `Programmable voice -> Tools -> TwiML apps` and create an application. In a few seconds your Twilio app will be ready (we'll need its SID later), then you can configure a webhook there to handle the voice calls by simply typing the address of your Callio app into Voice's `requested URL`. By default, Callio uses the following URL's to run:
+
+* TwiML app Voice request URL: `/twilio`
+* Twilio phone number Voice URL for `a call comes in` webhook: `/twilio`
+* Twilio phone number Voice URL for `call status changes`: `/finished`
+
+All these actions are performed for `POST` request method. You can of course override it by changing the `controllers/controller.rb` file, but if you just want to install Callio and start using it, you should stick to the addresses above. Of course, all of them should added to your base URL, e.g. https://my-awesome-callio-123.herokuapp.com. So finally our `web_client_url` in config file should look like https://my-awesome-callio-123.herokuapp.com/call.
 
 #### Slack application
 
