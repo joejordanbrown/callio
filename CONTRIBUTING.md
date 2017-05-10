@@ -6,7 +6,7 @@ If you have any ideas for improvements or new features, please just submit a pul
 
 Before submitting any changes, please make sure you know how to [contribute to open source projects on GitHub](https://gun.io/blog/how-to-github-fork-branch-and-pull-request/). Bear in mind that here in Callio, word *contributing* actually means adding some extra value to the project, which means:
 
-* fixing bugs existing projects
+* fixing existing bugs
 * adding new features
 * refactoring the existing codebase in terms of its functionality, readability or performance
 
