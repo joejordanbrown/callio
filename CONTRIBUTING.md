@@ -1,6 +1,6 @@
 # Contributing
 
-If you have any ideas for improvements or new features, please just submit a pull request following the guidelines below. If you think you can improve Callio, but doesn't really know how to implement your ideas, please open an [issue](https://github.com/netguru/callio/issues) and we'll discuss it in the comments.
+If you have any ideas for improvements or new features, please just submit a pull request following the guidelines below. If you think you can improve Callio, but don't really know how to implement your ideas, please open an [issue](https://github.com/netguru/callio/issues) and we'll discuss it in the comments.
 
 ## Pull Requests
 
